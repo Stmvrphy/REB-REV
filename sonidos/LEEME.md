@@ -12,11 +12,13 @@ Cómo conectarlos con la herramienta está en la sección **Usar otros sonidos**
 ## Créditos de los sonidos
 
 | Archivo | Autor | Fuente | Licencia |
-| | | | |
+
 |FuzzFactory1|anamorphosis|<a href="https://freesound.org/people/anamorphosis/sounds/24610/">FuzzFactory1.WAV</a> by <a href="https://freesound.org/people/anamorphosis/">anamorphosis</a> | License: <a href="http://creativecommons.org/licenses/sampling+/1.0/">Sampling+</a>|CC BY|
 | | | | |
-1.FuzzFactory1, anamorphosis, CC BY <a href="https://freesound.org/people/anamorphosis/sounds/24610/">FuzzFactory1.WAV</a> by <a href="https://freesound.org/people/anamorphosis/">anamorphosis</a> | License: <a href="http://creativecommons.org/licenses/sampling+/1.0/">Sampling+</a>
-2.F, brterry, CC0. <a href="https://freesound.org/people/brterry/sounds/324205/">F.mp3</a> by <a href="https://freesound.org/people/brterry/">brterry</a> | License: <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons 0</a>
+|F|brterry|<a href="https://freesound.org/people/brterry/sounds/324205/">F.mp3</a> by <a href="https://freesound.org/people/brterry/">brterry</a> | License: <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons 0</a>|CC0|
+
+
+
 3.Distorted guitar note sustained, MikeySaints, CC0, <a href="https://freesound.org/people/MikeySaints/sounds/807350/">Distorted guitar note sustained to chord</a> by <a href="https://freesound.org/people/MikeySaints/">MikeySaints</a> | License: <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons 0</a>
 4.PHASED AXE SWEEP IN D, sandyrb, CC BY, <a href="https://freesound.org/people/sandyrb/sounds/35646/">PHASED AXE SWEEP IN D.wav</a> by <a href="https://freesound.org/people/sandyrb/">sandyrb</a> | License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</a>
 5.feedme3, Elx, CC BY, <a href="https://freesound.org/people/elx/sounds/37960/">feedme3.wav</a> by <a href="https://freesound.org/people/elx/">elx</a> | License: <a href="http://creativecommons.org/licenses/sampling+/1.0/">Sampling+</a>
