@@ -12,6 +12,7 @@ Cómo conectarlos con la herramienta está en la sección **Usar otros sonidos**
 ## Créditos de los sonidos
 
 | Archivo | Autor | Fuente | Licencia |
+| | | | |
 |FuzzFactory1|anamorphosis|<a href="https://freesound.org/people/anamorphosis/sounds/24610/">FuzzFactory1.WAV</a> by <a href="https://freesound.org/people/anamorphosis/">anamorphosis</a> | License: <a href="http://creativecommons.org/licenses/sampling+/1.0/">Sampling+</a>|CC BY|
 | | | | |
 1.FuzzFactory1, anamorphosis, CC BY <a href="https://freesound.org/people/anamorphosis/sounds/24610/">FuzzFactory1.WAV</a> by <a href="https://freesound.org/people/anamorphosis/">anamorphosis</a> | License: <a href="http://creativecommons.org/licenses/sampling+/1.0/">Sampling+</a>
