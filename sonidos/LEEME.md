@@ -14,7 +14,9 @@ Cómo conectarlos con la herramienta está en la sección **Usar otros sonidos**
 | Archivo | Autor | Fuente | Licencia |
 
 |FuzzFactory1|anamorphosis|<a href="https://freesound.org/people/anamorphosis/sounds/24610/">FuzzFactory1.WAV</a> by <a href="https://freesound.org/people/anamorphosis/">anamorphosis</a> | License: <a href="http://creativecommons.org/licenses/sampling+/1.0/">Sampling+</a>|CC BY|
-| | | | |
+
+
+
 |F|brterry|<a href="https://freesound.org/people/brterry/sounds/324205/">F.mp3</a> by <a href="https://freesound.org/people/brterry/">brterry</a> | License: <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons 0</a>|CC0|
 
 
