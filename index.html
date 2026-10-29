@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reb&Rev</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Filtros SVG fanzine: desplazamiento orgánico en textos y títulos -->
+<svg id="fanzine-filters" xmlns="http://www.w3.org/2000/svg"
+  style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;" aria-hidden="true">
+  <defs>
+    <filter id="fanzine-roughen" x="-8%" y="-25%" width="116%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045 0.055" numOctaves="4" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="fanzine-title" x="-4%" y="-15%" width="108%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.04" numOctaves="5" seed="12" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="bar bar-top">
+  <span>Clase <span class="num">03</span> · Sonido · Ejercicio <span class="num">03</span></span>
+  <span class="grow chain" id="chain">luz → cámara → píxel → <b>cambio</b> → regla → nota → sonido</span>
+  <button type="button" class="neon" id="soundBtn" aria-pressed="false">▶ Activar sonido</button>
+  <button type="button" id="fsBtn">⛶ Pantalla completa</button>
+</div>
+
+<main class="stage" id="stage">
+  <div class="sidebar">
+    <div class="title"><h1>Reb&Rev</h1><p id="status">Fuente: ejemplo · calle sintética</p></div>
+
+    <nav class="dock" id="dock" aria-label="Parámetros">
+    <div>
+      <button type="button" class="trigger" aria-expanded="false" data-panel="pMode"><span><span class="num">01</span>Modo</span><span class="state" id="stMode">zonas</span></button>
+      <div class="panel" id="pMode" hidden>
+        <div class="panel-bar"><span>01 · Modo de disparo</span><button type="button" data-close>Cerrar</button></div>
+        <div class="seg seg4" role="group" aria-label="Modo">
+          <button type="button" data-mode="zonas" aria-pressed="true">Zonas</button>
+          <button type="button" data-mode="particula" aria-pressed="false">Partícula</button>
+          <button type="button" data-mode="lineas" aria-pressed="false">Líneas</button>
+          <button type="button" data-mode="escaner" aria-pressed="false">Escáner</button>
+        </div>
+        <p class="hint" id="modeHint">La imagen se divide en una grilla de 5 × 3 zonas. Las 5 superiores disparan audios del grupo Top seleccionado.</p>
+        <div class="row two" data-show="zonas">
+          <label>Top</label>
+          <div class="seg" role="group" aria-label="Grupo Top">
+            <button type="button" data-top="G1" aria-pressed="true">G1</button>
+            <button type="button" data-top="G2" aria-pressed="false">G2</button>
+            <button type="button" data-top="G3" aria-pressed="false">G3</button>
+          </div>
+        </div>
+        <div class="row" data-show="lineas"><label for="nl">Líneas</label><input type="range" id="nl" min="2" max="4" step="1" value="3"><output id="nlOut">3</output></div>
+        <div class="row" data-show="lineas"><label for="segs">Tramos</label><input type="range" id="segs" min="3" max="12" step="1" value="7"><output id="segsOut">7</output></div>
+        <div class="row" data-show="escaner"><label for="sdur">Vuelta</label><input type="range" id="sdur" min="2" max="20" step="1" value="6"><output id="sdurOut">6 s</output></div>
+        <div class="row" data-show="escaner"><label for="steps">Pasos</label><input type="range" id="steps" min="8" max="32" step="1" value="16"><output id="stepsOut">16</output></div>
+        <div class="row"><label for="bright">Umbral negro</label><input type="range" id="bright" min="30" max="240" step="1" value="90"><output id="brightOut">90</output></div>
+        <div class="checks"><label><input type="checkbox" id="invert"> invertir: leer lo oscuro en vez de lo claro</label></div>
+        <div class="checks" data-show="lineas"><label><input type="checkbox" id="mapDir"> dirección del cruce → octava (← suena más grave)</label></div>
+        <ol class="voices" id="voices" data-show="lineas"></ol>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="trigger" aria-expanded="false" data-panel="pVis"><span><span class="num">02</span>Visualización</span><span class="state" id="stVis">sutil</span></button>
+      <div class="panel" id="pVis" hidden>
+        <div class="panel-bar"><span>02 · Visualización</span><button type="button" data-close>Cerrar</button></div>
+        <div class="seg" role="group" aria-label="Fondo">
+          <button type="button" data-view="mix" aria-pressed="true">Video</button>
+          <button type="button" data-view="mask" aria-pressed="false">Máquina</button>
+        </div>
+        <p class="hint">Máquina reemplaza el video por los píxeles que cambiaron: es todo lo que el sistema ve.</p>
+        <div class="row"><label for="tint">Reacción</label><input type="range" id="tint" min="0" max="60" step="1" value="22"><output id="tintOut">22 %</output></div>
+        <div class="row"><label for="veil">Oscurecer</label><input type="range" id="veil" min="0" max="70" step="1" value="0"><output id="veilOut">0 %</output></div>
+        <p class="hint">Líneas, notas y partículas se apagan desde la barra inferior.</p>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="trigger" aria-expanded="false" data-panel="pKeys"><span><span class="num">03</span>Teclas</span><span class="state" id="stKeys">5 × 3</span></button>
+      <div class="panel" id="pKeys" hidden>
+        <div class="panel-bar"><span>03 · Teclas</span><button type="button" data-close>Cerrar</button></div>
+        <div class="row"><label for="cols">Columnas</label><input type="range" id="cols" min="3" max="12" step="1" value="5"><output id="colsOut">5</output></div>
+        <div class="row"><label for="rows">Filas</label><input type="range" id="rows" min="1" max="3" step="1" value="3"><output id="rowsOut">3</output></div>
+        <div class="row two"><label for="scale">Escala</label>
+          <select id="scale"><option value="pmaj">Pentatónica mayor</option><option value="pmin">Pentatónica menor</option><option value="maj">Mayor</option><option value="chr">Cromática</option></select></div>
+        <div class="row two"><label for="root">Nota base</label>
+          <select id="root"><option value="48" selected>Do3 · 131 Hz</option><option value="55">Sol3 · 196 Hz</option><option value="57">La3 · 220 Hz</option><option value="60">Do4 · 262 Hz</option></select></div>
+        <p class="hint">Columnas recorren la escala; filas son octavas, la de arriba es la más aguda. Columnas y filas solo aplican al modo Zonas; escala y nota base aplican a todos.</p>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="trigger" aria-expanded="false" data-panel="pDet"><span><span class="num">04</span>Detección</span><span class="state" id="stDet">3 %</span></button>
+      <div class="panel" id="pDet" hidden>
+        <div class="panel-bar"><span>04 · Detección</span><button type="button" data-close>Cerrar</button></div>
+        <div class="row"><label for="thr">Umbral píxel</label><input type="range" id="thr" min="8" max="80" step="1" value="28"><output id="thrOut">28</output></div>
+        <div class="row"><label for="sens">Sensibilidad</label><input type="range" id="sens" min="1" max="40" step="1" value="3"><output id="sensOut">3 %</output></div>
+        <div class="row"><label for="cool">Repetición</label><input type="range" id="cool" min="60" max="1200" step="20" value="320"><output id="coolOut">320 ms</output></div>
+        <p class="hint">Compara cada fotograma con el anterior (15 por segundo, 128 × 72 px). Una zona o un tramo de línea suena cuando el porcentaje de píxeles que cambian supera la sensibilidad. El escáner no usa estos valores: lee el brillo.</p>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="trigger" aria-expanded="false" data-panel="pSnd"><span><span class="num">05</span>Sonido</span><span class="state" id="stSnd">triang.</span></button>
+      <div class="panel" id="pSnd" hidden>
+        <div class="panel-bar"><span>05 · Sonido</span><button type="button" data-close>Cerrar</button></div>
+        <div class="seg" role="group" aria-label="Forma de onda">
+          <button type="button" data-wave="sine" aria-pressed="false">Seno</button>
+          <button type="button" data-wave="triangle" aria-pressed="true">Triang.</button>
+          <button type="button" data-wave="square" aria-pressed="false">Cuadr.</button>
+          <button type="button" data-wave="sawtooth" aria-pressed="false">Sierra</button>
+        </div>
+        <div class="row"><label for="atk">Attack</label><input type="range" id="atk" min="1" max="800" step="1" value="8"><output id="atkOut">8 ms</output></div>
+        <div class="row"><label for="rel">Release</label><input type="range" id="rel" min="40" max="3000" step="10" value="700"><output id="relOut">700 ms</output></div>
+        <div class="row"><label for="cut">Pasa-bajos</label><input type="range" id="cut" min="200" max="12000" step="10" value="3200"><output id="cutOut">3.2k</output></div>
+        <div class="row"><label for="rev">Reverb</label><input type="range" id="rev" min="0" max="100" step="1" value="30"><output id="revOut">30 %</output></div>
+        <div class="row"><label for="vol">Volumen</label><input type="range" id="vol" min="0" max="100" step="1" value="60"><output id="volOut">60 %</output></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="readout" aria-live="polite">
+    <div class="note" id="lastNote">—</div>
+    <div><span class="lbl">frecuencia </span><span class="val" id="lastHz">—</span> <span class="lbl" id="lblZone"> · zona </span><span class="val" id="lastZone">—</span> <span class="lbl" id="lblPct"> · cambio </span><span class="val" id="lastPct">—</span></div>
+    <div class="rule" id="mapText">zona → nota</div>
+  </div>
+</div>
+
+  <div class="visualizer-wrap">
+    <div class="visualizer" id="visualizer">
+      <canvas id="view"></canvas>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+</main>
+
+<div class="bar bar-bottom">
+  <div class="group-inline seg" role="group" aria-label="Fuente">
+    <button type="button" id="srcDemo" aria-pressed="true">Ejemplo</button>
+    <button type="button" id="srcCam" aria-pressed="false">Cámara</button>
+    <button type="button" id="srcFile" aria-pressed="false">Video</button>
+    <button type="button" id="srcPhoto" aria-pressed="false">Foto</button>
+  </div>
+  <div class="group-inline" id="camCtx" hidden><button type="button" id="camOff">Apagar cámara</button></div>
+  <div class="group-inline" id="vidCtx" hidden>
+    <button type="button" id="vPlay">▶ Play</button><button type="button" id="vPause">❚❚ Pausa</button>
+    <button type="button" id="vLoop" aria-pressed="true">⟲ Loop</button><button type="button" id="vChange">Cambiar</button>
+  </div>
+  <div class="group-inline" id="photoCtx" hidden>
+    <button type="button" id="photoChange">Cambiar</button>
+  </div>
+  <input type="file" id="fileInput" accept="video/*" hidden>
+  <input type="file" id="photoInput" accept="image/*" hidden>
+  <span class="grow"></span>
+  <div class="group-inline" role="group" aria-label="Capas">
+    <button type="button" class="toggle" id="tLines" aria-pressed="true">Líneas</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
